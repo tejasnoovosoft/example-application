@@ -3,7 +3,7 @@
 <div *ngFor="let product of products">
   <h3>
     <a [title]="product.name + ' details'"
-      [routerLink="['/product',product.id]"]
+    [routerLink]="['/product',product.id]"
     >
       {{ product.name }}
     </a>
