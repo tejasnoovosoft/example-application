@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product,products } from '../products';
 
@@ -7,16 +7,17 @@ import { Product,products } from '../products';
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
-export class ProductDetailsComponent {
+
+export class ProductDetailsComponent implements OnInit {
+  
   product:Product|undefined
-  constructor(private route:ActivatedRoute){
+  constructor(private route: ActivatedRoute) { }
 
-  }
-
-  ngOnInit(){
-      const routeParams = this.route.snapshot.paramMap
-      const productIdFromRoute = Number(routeParams.get('produtcId'))
-
-      this.product = products.find( (product) => product.id === productIdFromRoute)
+  ngOnInit() {
+    
+    const routeParams = this.route.snapshot.paramMap;
+    const productIdFromRoute = Number(routeParams.get('productId'));
+  
+    this.product = products.find((product) => product.id === productIdFromRoute);
   }
 }
